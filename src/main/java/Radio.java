@@ -1,14 +1,19 @@
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class Radio {
-    public int numCurrentStation;
-    public int currentVolume;
-    int stationsCount;
+    private int numCurrentStation;
+    private int currentVolume;
+    private final int stationsCount;
+
     public Radio() {
         this.stationsCount = 10;
     }
 
-    public Radio(int stationsCount) {
-        this.stationsCount = stationsCount;
-    }
     public void nextNumStation() {
         if (numCurrentStation < stationsCount - 1) {
             numCurrentStation = numCurrentStation + 1;
