@@ -37,9 +37,9 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseVolume2() {
-        radio.currentVolume = 10;
+        radio.currentVolume = 100;
         radio.increaseVolume();
-        int expected = 10;
+        int expected = 100;
         Assertions.assertEquals(expected, radio.currentVolume);
     }
 
