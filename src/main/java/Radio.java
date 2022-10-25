@@ -1,6 +1,4 @@
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
@@ -8,6 +6,7 @@ import lombok.Setter;
 public class Radio {
     private int numCurrentStation;
     private int currentVolume;
+    @Getter(AccessLevel.NONE)
     private final int stationsCount;
 
     public Radio() {
