@@ -1,12 +1,23 @@
+import lombok.*;
+
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class Radio {
-    public int numCurrentStation;
-    public int currentVolume;
+    private int numCurrentStation;
+    private int currentVolume;
+    @Getter(AccessLevel.NONE)
+    private final int stationsCount;
+
+    public Radio() {
+        this.stationsCount = 10;
+    }
 
     public void nextNumStation() {
-        if (numCurrentStation < 9) {
+        if (numCurrentStation < stationsCount - 1) {
             numCurrentStation = numCurrentStation + 1;
         }
-        if (numCurrentStation == 9) {
+        if (numCurrentStation == stationsCount - 1) {
             numCurrentStation = 0;
         }
     }
@@ -16,12 +27,12 @@ public class Radio {
             numCurrentStation = numCurrentStation - 1;
         }
         if (numCurrentStation == 0) {
-            numCurrentStation = 9;
+            numCurrentStation = stationsCount - 1;
         }
     }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
     }
@@ -30,17 +41,15 @@ public class Radio {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         }
-
     }
 
     public void setNumStation(int newCurrentStation) {
         if (newCurrentStation < 0) {
             return;
         }
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > stationsCount - 1) {
             return;
         }
         numCurrentStation = newCurrentStation;
-
     }
 }
